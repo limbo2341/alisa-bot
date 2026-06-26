@@ -233,7 +233,7 @@ async def generate_response(user_message, user_id):
 async def generate_alisa_photo(prompt_extra=""):
     base_prompt = ALISA["prompt"]
     if prompt_extra:
-        full_prompt = f"{base_prompt}, {prompt_extra}, full body shot, beautiful blonde woman, photorealistic
+        full_prompt = f"{base_prompt}, {prompt_extra}, full body shot, beautiful blonde woman, photorealistic"
     else:
         full_prompt = base_prompt + ", full body shot, beautiful blonde woman, photorealistic
     
