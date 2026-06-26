@@ -374,7 +374,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return MAIN
     
     if text == "🔀 Випадкове фото":
-        prompts = ["wearing a white summer dress, standing in a field of flowers, sunset", "wearing a black evening dress, sitting on a balcony, city night lights", "wearing a casual outfit, smiling, walking in the park, sunny day", "wearing a swimsuit, on the beach, ocean waves, summer vibes"]
+        prompts = ["full body shot, standing, wearing a white summer dress, in a field of flowers, sunset, photorealistic", "full body shot, sitting on a balcony, wearing a black evening dress, city night lights, photorealistic", "full body shot, walking in the park, wearing casual outfit, smiling, sunny day, photorealistic", "full body shot, on the beach, wearing a swimsuit, ocean waves, summer vibes, photorealistic"]
         await update.message.reply_text("⏳ *Генерую фото...*", parse_mode="Markdown")
         image = await generate_alisa_photo(random.choice(prompts))
         if image:
