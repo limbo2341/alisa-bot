@@ -233,9 +233,9 @@ async def generate_response(user_message, user_id):
 async def generate_alisa_photo(prompt_extra=""):
     base_prompt = ALISA["prompt"]
     if prompt_extra:
-        full_prompt = f"{base_prompt}, {prompt_extra}, full body shot, full length, standing, photorealistic, 8k"
+        full_prompt = f"{base_prompt}, {prompt_extra}, full body shot, beautiful blonde woman, photorealistic
     else:
-        full_prompt = base_prompt + ", full body shot, full length, standing, photorealistic, 8k"
+        full_prompt = base_prompt + ", full body shot, beautiful blonde woman, photorealistic
     
     import urllib.parse, random
     url = "https://image.pollinations.ai/prompt/" + urllib.parse.quote(full_prompt) + f"?width=768&height=1280&nologo=true&seed={random.randint(1,99999)}"
@@ -374,7 +374,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return MAIN
     
     if text == "🔀 Випадкове фото":
-        prompts = ["full body shot, standing, wearing a white summer dress, in a field of flowers, sunset, photorealistic", "full body shot, sitting on a balcony, wearing a black evening dress, city night lights, photorealistic", "full body shot, walking in the park, wearing casual outfit, smiling, sunny day, photorealistic", "full body shot, on the beach, wearing a swimsuit, ocean waves, summer vibes, photorealistic"]
+        prompts = ["full body shot, beautiful blonde woman, photorealistic
         await update.message.reply_text("⏳ *Генерую фото...*", parse_mode="Markdown")
         image = await generate_alisa_photo(random.choice(prompts))
         if image:
@@ -413,11 +413,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Обробка зміни одягу
     if text in ["👗 Сукня", "👙 Купальник", "👕 Футболка + джинси", "👔 Вечірня сукня", "🧥 Піджак"]:
         outfit_map = {
-            "👗 Сукня": "full body shot, wearing a beautiful dress",
-            "👙 Купальник": "full body shot, wearing a bikini on the beach",
-            "👕 Футболка + джинси": "full body shot, wearing a casual t-shirt and jeans",
-            "👔 Вечірня сукня": "full body shot, wearing an elegant evening gown",
-            "🧥 Піджак": "full body shot, wearing a stylish jacket"
+            "👗 Сукня": "full body shot, beautiful blonde woman, photorealistic
+            "👙 Купальник": "full body shot, beautiful blonde woman, photorealistic
+            "👕 Футболка + джинси": "full body shot, beautiful blonde woman, photorealistic
+            "👔 Вечірня сукня": "full body shot, beautiful blonde woman, photorealistic
+            "🧥 Піджак": "full body shot, beautiful blonde woman, photorealistic
         }
         await update.message.reply_text("⏳ *Генерую фото...*", parse_mode="Markdown")
         image = await generate_alisa_photo(outfit_map[text])
@@ -431,10 +431,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Обробка зміни пози
     if text in ["🧍 Стоїть", "🪑 Сидить", "🛌 Лежить", "🚶 Йде"]:
         pose_map = {
-            "🧍 Стоїть": "full body shot, standing",
-            "🪑 Сидить": "full body shot, sitting",
-            "🛌 Лежить": "full body shot, lying down",
-            "🚶 Йде": "full body shot, walking"
+            "🧍 Стоїть": "full body shot, beautiful blonde woman, photorealistic
+            "🪑 Сидить": "full body shot, beautiful blonde woman, photorealistic
+            "🛌 Лежить": "full body shot, beautiful blonde woman, photorealistic
+            "🚶 Йде": "full body shot, beautiful blonde woman, photorealistic
         }
         await update.message.reply_text("⏳ *Генерую фото...*", parse_mode="Markdown")
         image = await generate_alisa_photo(pose_map[text])
@@ -448,11 +448,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Обробка зміни фону
     if text in ["🏙️ Місто", "🏖️ Пляж", "🌲 Ліс", "🏔️ Гори", "🌅 Захід сонця"]:
         bg_map = {
-            "🏙️ Місто": "full body shot, in the city with modern buildings",
-            "🏖️ Пляж": "full body shot, on the beach with ocean waves",
-            "🌲 Ліс": "full body shot, in a green forest with sunlight",
-            "🏔️ Гори": "full body shot, in the mountains with snowy peaks",
-            "🌅 Захід сонця": "full body shot, at sunset with warm golden light"
+            "🏙️ Місто": "full body shot, beautiful blonde woman, photorealistic
+            "🏖️ Пляж": "full body shot, beautiful blonde woman, photorealistic
+            "🌲 Ліс": "full body shot, beautiful blonde woman, photorealistic
+            "🏔️ Гори": "full body shot, beautiful blonde woman, photorealistic
+            "🌅 Захід сонця": "full body shot, beautiful blonde woman, photorealistic
         }
         await update.message.reply_text("⏳ *Генерую фото...*", parse_mode="Markdown")
         image = await generate_alisa_photo(bg_map[text])
